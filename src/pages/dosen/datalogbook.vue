@@ -1,0 +1,95 @@
+<template>
+<q-page padding>
+    <div class="q-pa-md">
+      <q-table
+        title="Data logbook"
+        :data="data"
+        :columns="columns"
+        row-key="name"
+      >
+        <template v-slot:top-right>
+          <q-btn label="Input Logbook" color="primary" unelevated icon="add" :to="{ name: 'inputLogBookdosen' }"/>
+        </template>
+
+        <template v-slot:body="props">
+          <q-tr :props="props">
+           <q-td key="nama_kegiatan" :props="props">
+              {{ props.row.nama_kegiatan}}
+            </q-td>
+            <q-td key="NIDN_dosen" :props="props">
+              {{ props.row.NIDN_dosen }}
+            </q-td>
+            <q-td key="Deskripsi" :props="props">
+              {{ props.row.Deskripsi }}
+            </q-td>
+            <q-td key="waktu_pelaksanaan" :props="props">
+              {{ $parseDate(props.row.waktu_mulai_pelaksanaan).fullDate }}
+            </q-td>
+            <q-td key="Target_Pelaksanaan" :props="props">
+              {{ $parseDate(props.row.waktu_selesai_pelaksanaan).fullDate }}
+            </q-td>
+            <q-td key="Keterangan" :props="props">
+              {{ (props.row.Keterangan) }}
+            </q-td>
+            <q-td key="aksi" :props="props">
+              <div class="row q-gutter-md">
+                <q-btn label="EDIT" color="warning" unelevated :to="{ name: 'editlogbook', params: { id: props.row._id}}"/>
+                <q-btn @click="confirm(props.row._id)" label="DELETE" color="negative" unelevated/>
+              </div>
+            </q-td>
+          </q-tr>
+        </template>
+      </q-table>
+
+    </div>
+  </q-page>
+  </template>
+<script>
+export default {
+  data () {
+    return {
+      columns: [
+        { name: 'nama_kegiatan', align: 'left', label: 'Nama Kegiatan', field: 'nama_kegiatan', sortable: true },
+        { name: 'NIDN_dosen', align: 'left', label: 'NIDN Dosen', field: 'NIDN_dosen', sortable: true },
+        { name: 'Deskripsi', align: 'left', label: 'Deskripsi', field: 'Deskripsi' },
+        { name: 'waktu_pelaksanaan', align: 'left', label: 'Waktu Pelaksanaan', field: 'waktu_pelaksanaan' },
+        { name: 'Target_Pelaksanaan', align: 'left', label: 'Target Pelaksanaan', field: 'Target_Pelaksanaan' },
+        { name: 'Keterangan', align: 'left', label: 'Keterangan', field: 'Keterangan' },
+        { name: 'aksi', align: 'left', label: 'Aksi', field: 'aksi' }
+      ],
+
+      data: []
+    }
+  },
+  created () {
+    this.getdata()
+  },
+  methods: {
+    getdata () {
+      const dataDosen = this.$q.localStorage.getItem('dataUser')
+      this.$axios.get('logbook/getall/' + dataDosen.username)
+        .then(res => {
+          this.data = res.data.data
+        })
+    },
+    confirm (id) {
+      this.$q.dialog({
+        title: 'Confirm',
+        message: 'Would you like to delete this data???????',
+        cancel: true,
+        persistent: true
+      }).onOk(() => {
+        this.$axios.delete('logbook/delete/' + id)
+          .then(res => {
+            if (res.data.sukses) {
+              this.$showNotif(res.data.massage, 'positive')
+              this.getdata()
+            } else {
+              this.$showNotif(res.data.massage, 'negative')
+            }
+          })
+      })
+    }
+  }
+}
+</script>
