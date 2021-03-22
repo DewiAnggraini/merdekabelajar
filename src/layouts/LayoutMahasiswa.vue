@@ -47,7 +47,7 @@
         </q-item>
         <q-item
           clickable
-          :to="{ name: 'pilihlogbookmahasiswa' }"
+          :to="{ name: 'lihatlogbookmahasiswa' }"
         >
           <q-item-section
             avatar
@@ -56,7 +56,21 @@
           </q-item-section>
 
           <q-item-section>
-            <q-item-label>Pilih Logbook</q-item-label>
+            <q-item-label>Data Logbook</q-item-label>
+          </q-item-section>
+        </q-item>
+        <q-item
+          clickable
+          :to="{ name: 'inputlaporanmingguan' }"
+        >
+          <q-item-section
+            avatar
+          >
+            <q-icon name="input" />
+          </q-item-section>
+
+          <q-item-section>
+            <q-item-label>Input Laporan Mingguan</q-item-label>
           </q-item-section>
         </q-item>
         <q-item

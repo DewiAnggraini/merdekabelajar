@@ -16,17 +16,17 @@
            <q-td key="nama_kegiatan" :props="props">
               {{ props.row.nama_kegiatan}}
             </q-td>
-            <q-td key="NIDN_dosen" :props="props">
-              {{ props.row.NIDN_dosen }}
-            </q-td>
             <q-td key="Deskripsi" :props="props">
               {{ props.row.Deskripsi }}
             </q-td>
-            <q-td key="waktu_pelaksanaan" :props="props">
-              {{ $parseDate(props.row.waktu_mulai_pelaksanaan).fullDate }}
+            <q-td key="waktu_mulai_pelaksanaan" :props="props">
+              <!-- {{ $parseDate(props.row.waktu_mulai_pelaksanaan).fullDate }} -->
             </q-td>
-            <q-td key="Target_Pelaksanaan" :props="props">
-              {{ $parseDate(props.row.waktu_selesai_pelaksanaan).fullDate }}
+            <q-td key="waktu_selesai_pelaksanaan" :props="props">
+              <!-- {{ $parseDate(props.row.waktu_selesai_pelaksanaan).fullDate }} -->
+            </q-td>
+            <q-td key="target_kegiatan" :props="props">
+              {{ props.row.target_kegiatan }}
             </q-td>
             <q-td key="Keterangan" :props="props">
               {{ (props.row.Keterangan) }}
@@ -50,10 +50,10 @@ export default {
     return {
       columns: [
         { name: 'nama_kegiatan', align: 'left', label: 'Nama Kegiatan', field: 'nama_kegiatan', sortable: true },
-        { name: 'NIDN_dosen', align: 'left', label: 'NIDN Dosen', field: 'NIDN_dosen', sortable: true },
         { name: 'Deskripsi', align: 'left', label: 'Deskripsi', field: 'Deskripsi' },
-        { name: 'waktu_pelaksanaan', align: 'left', label: 'Waktu Pelaksanaan', field: 'waktu_pelaksanaan' },
-        { name: 'Target_Pelaksanaan', align: 'left', label: 'Target Pelaksanaan', field: 'Target_Pelaksanaan' },
+        { name: 'waktu_mulai_pelaksanaan', align: 'left', label: 'Waktu mulai Pelaksanaan', field: 'waktu_mulai_pelaksanaan' },
+        { name: 'waktu_selesai_pelaksanaan', align: 'left', label: 'Waktu selesai Pelaksanaan', field: 'waktu_selesai_pelaksanaan' },
+        { name: 'target_kegiatan', align: 'left', label: 'Target kegiatan', field: 'target_kegiatan' },
         { name: 'Keterangan', align: 'left', label: 'Keterangan', field: 'Keterangan' },
         { name: 'aksi', align: 'left', label: 'Aksi', field: 'aksi' }
       ],

@@ -36,7 +36,8 @@ const routes = [
     children: [
       { path: '', name: 'homesiswa', component: () => import('pages/mahasiswa/homemahasiswa.vue') },
       { path: '/kegiatan/input', name: 'inputkegiatanmahasiswa', component: () => import('pages/mahasiswa/pilihkegiatan.vue') },
-      { path: '/logbook/input', name: 'pilihlogbookmahasiswa', component: () => import('pages/mahasiswa/datalogbook.vue') }
+      { path: '/logbook/lihat', name: 'lihatlogbookmahasiswa', component: () => import('pages/mahasiswa/datalogbook.vue') },
+      { path: '/laporan/input', name: 'inputlaporanmingguan', component: () => import('pages/mahasiswa/InputLaporanMingguan.vue') }
     ]
   },
 
@@ -52,7 +53,7 @@ const routes = [
       { path: 'mingguan', name: 'mingguan', component: () => import('pages/dosen/laporanmingguan.vue') },
       { path: 'datalogbook', name: 'datalogbookdosen', component: () => import('pages/dosen/datalogbook.vue') },
       { path: 'logbook/edit/:id', name: 'editlogbook', component: () => import('pages/dosen/editlogbook.vue') },
-      { path: 'mingguan', name: 'evaluasimingguan', component: () => import('pages/dosen/evaluasimingguan.vue') }
+      { path: 'evaluasiminggu', name: 'evaluasiminggu', component: () => import('pages/dosen/evaluasiminggu.vue') }
     ]
   },
 

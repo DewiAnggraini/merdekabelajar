@@ -7,9 +7,6 @@
         :columns="columns"
         row-key="name"
       >
-        <template v-slot:top-right>
-          <q-btn label="Pilih Kegiatan" color="primary" unelevated icon="add" :to="{ name: 'inputkegiatanmahasiswa' }"/>
-        </template>
         <template v-slot:body="props">
           <q-tr :props="props">
            <q-td key="nama_Kegiatan" :props="props">
