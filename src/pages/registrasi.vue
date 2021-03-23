@@ -56,7 +56,6 @@ export default {
         email: this.email,
         nama: this.nama
       }).then(res => {
-        console.log(res)
         if (res.data.sukses) {
           this.$showNotif(res.data.massage, 'positive')
           this.$router.push({ name: 'loginPage' })

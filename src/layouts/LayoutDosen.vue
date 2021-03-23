@@ -61,7 +61,7 @@
         </q-item>
         <q-item
           clickable
-          :to="{ name: 'mingguan' }"
+          :to="{ name: 'lihatmingguan' }"
         >
           <q-item-section
             avatar

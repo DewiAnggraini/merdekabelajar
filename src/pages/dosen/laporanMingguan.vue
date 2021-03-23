@@ -7,9 +7,11 @@
         :columns="columns"
         row-key="name"
       >
-
         <template v-slot:body="props">
           <q-tr :props="props">
+            <q-td key="NPM" :props="props">
+              {{ props.row.NPM}}
+            </q-td>
            <q-td key="nama_kegiatan" :props="props">
               {{ props.row.nama_kegiatan}}
             </q-td>
@@ -17,10 +19,10 @@
               {{ props.row.Deskripsi }}
             </q-td>
             <q-td key="waktu_mulai_pelaksanaan" :props="props">
-              <!-- {{ $parseDate(props.row.waktu_mulai_pelaksanaan).fullDate }} -->
+              {{ $parseDate(props.row.waktu_mulai_pelaksanaan).fullDate }}
             </q-td>
             <q-td key="waktu_selesai_pelaksanaan" :props="props">
-              <!-- {{ $parseDate(props.row.waktu_selesai_pelaksanaan).fullDate }} -->
+              {{ $parseDate(props.row.waktu_selesai_pelaksanaan).fullDate }}
             </q-td>
             <q-td key="target_kegiatan" :props="props">
               {{ props.row.target_kegiatan }}
@@ -30,8 +32,7 @@
             </q-td>
             <q-td key="aksi" :props="props">
               <div class="row q-gutter-md">
-                <q-btn label="EVALUASI" color="warning" unelevated :to="{ name: 'evaluasiminggu', params: { id: props.row._id}}"/>
-                <q-btn @click="confirm(props.row._id)" label="DELETE" color="negative" unelevated/>
+                <q-btn label="EVALUASI" color="warning" unelevated :to="{ name: 'evaluasimingguan', params: { id: props.row._id}}"/>
               </div>
             </q-td>
           </q-tr>
@@ -46,6 +47,7 @@ export default {
   data () {
     return {
       columns: [
+        { name: 'NPM', align: 'left', label: 'NPM', field: 'NPM', sortable: true },
         { name: 'nama_kegiatan', align: 'left', label: 'Nama Kegiatan', field: 'nama_kegiatan', sortable: true },
         { name: 'Deskripsi', align: 'left', label: 'Deskripsi', field: 'Deskripsi', sortable: true },
         { name: 'waktu_mulai_pelaksanaan', align: 'left', label: 'Waktu Mulai Pelaksanaan', field: 'waktu_mulai_pelaksanaan' },
@@ -63,8 +65,8 @@ export default {
   },
   methods: {
     getdata () {
-      const dataDosen = this.$q.localStorage.getItem('dataUser')
-      this.$axios.get('mingguan/getall/' + dataDosen.username)
+      const dataMhs = this.$q.localStorage.getItem('dataUser')
+      this.$axios.get('mingguan/getbydosen/' + dataMhs.username)
         .then(res => {
           this.data = res.data.data
           console.log(this.data)

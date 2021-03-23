@@ -2,7 +2,7 @@
 <q-page padding>
     <div class="q-pa-md">
       <q-table
-        title="Data logbofghfok"
+        title="Data logbook"
         :data="data"
         :columns="columns"
         row-key="name"
@@ -11,16 +11,16 @@
         <template v-slot:body="props">
           <q-tr :props="props">
            <q-td key="nama_kegiatan" :props="props">
-              {{ props.row. }}
+              {{ props.row.nama_kegiatan }}
             </q-td>
             <q-td key="Deskripsi" :props="props">
               {{ props.row.Deskripsi }}
             </q-td>
             <q-td key="waktu_mulai_pelaksanaan" :props="props">
-              <!-- {{ $parseDate(props.row.waktu_mulai_pelaksanaan).fullDate }} -->
+           {{ $parseDate(props.row.waktu_mulai_pelaksanaan).fullDate }}
             </q-td>
             <q-td key="waktu_selesai_pelaksanaan" :props="props">
-              <!-- {{ $parseDate(props.row.waktu_selesai_pelaksanaan).fullDate }} -->
+             {{ $parseDate(props.row.waktu_selesai_pelaksanaan).fullDate }}
             </q-td>
             <q-td key="target_kegiatan" :props="props">
               {{ props.row.target_kegiatan }}
@@ -30,8 +30,7 @@
             </q-td>
             <q-td key="aksi" :props="props">
               <div class="row q-gutter-md">
-                <q-btn label="EDIT" color="warning" unelevated :to="{ name: 'editlogbook', params: { id: props.row._id}}"/>
-                <q-btn @click="confirm(props.row._id)" label="DELETE" color="negative" unelevated/>
+                <q-btn label="KERJAKAN" color="warning" unelevated :to="{ name: 'inputlaporanmingguan', params: { id: props.row._id}}"/>
               </div>
             </q-td>
           </q-tr>

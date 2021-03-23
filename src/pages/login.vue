@@ -50,7 +50,6 @@ export default {
         username: this.username,
         password: this.password
       }).then(res => {
-        console.log(res)
         if (res.data.sukses) {
           this.$q.localStorage.set('dataUser', res.data.data)
           if (res.data.data.level === 1) {

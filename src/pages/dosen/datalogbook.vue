@@ -20,10 +20,10 @@
               {{ props.row.Deskripsi }}
             </q-td>
             <q-td key="waktu_mulai_pelaksanaan" :props="props">
-              <!-- {{ $parseDate(props.row.waktu_mulai_pelaksanaan).fullDate }} -->
+              {{ $parseDate(props.row.waktu_mulai_pelaksanaan).fullDate }}
             </q-td>
             <q-td key="waktu_selesai_pelaksanaan" :props="props">
-              <!-- {{ $parseDate(props.row.waktu_selesai_pelaksanaan).fullDate }} -->
+             {{ $parseDate(props.row.waktu_selesai_pelaksanaan).fullDate }}
             </q-td>
             <q-td key="target_kegiatan" :props="props">
               {{ props.row.target_kegiatan }}

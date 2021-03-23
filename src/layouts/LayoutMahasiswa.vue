@@ -59,7 +59,7 @@
             <q-item-label>Data Logbook</q-item-label>
           </q-item-section>
         </q-item>
-        <q-item
+        <!-- <q-item
           clickable
           :to="{ name: 'inputlaporanmingguan' }"
         >
@@ -72,7 +72,7 @@
           <q-item-section>
             <q-item-label>Input Laporan Mingguan</q-item-label>
           </q-item-section>
-        </q-item>
+        </q-item> -->
         <q-item
           clickable
           @click="logout()"
