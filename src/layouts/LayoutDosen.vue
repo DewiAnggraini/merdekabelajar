@@ -12,7 +12,7 @@
         />
 
         <q-toolbar-title>
-          APLIKASI MERDEKA BELAJAR KAMPUS MERDEKA BELAJAR
+        APLIKASI MERDEKA BELAJAR KAMPUS MERDEKA
         </q-toolbar-title>
 
       </q-toolbar>
@@ -75,6 +75,7 @@
         </q-item>
         <q-item
           clickable
+          :to="{ name: 'lihatakhir' }"
         >
           <q-item-section
             avatar
@@ -96,7 +97,7 @@
           </q-item-section>
 
           <q-item-section>
-            <q-item-label>input nilai</q-item-label>
+            <q-item-label> Nilai</q-item-label>
           </q-item-section>
         </q-item>
         <q-item

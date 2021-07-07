@@ -37,7 +37,8 @@ const routes = [
       { path: '', name: 'homesiswa', component: () => import('pages/mahasiswa/homemahasiswa.vue') },
       { path: '/kegiatan/input', name: 'inputkegiatanmahasiswa', component: () => import('pages/mahasiswa/pilihkegiatan.vue') },
       { path: '/logbook/lihat', name: 'lihatlogbookmahasiswa', component: () => import('pages/mahasiswa/datalogbook.vue') },
-      { path: '/laporan/input/:id', name: 'inputlaporanmingguan', component: () => import('pages/mahasiswa/InputLaporanMingguan.vue') }
+      { path: '/laporan/input/:id', name: 'inputlaporanmingguan', component: () => import('pages/mahasiswa/InputLaporanMingguan.vue') },
+      { path: '/laporanakhir/input/:id', name: 'inputlaporanakhir', component: () => import('pages/mahasiswa/inputLaporanAkhir.vue') }
     ]
   },
 
@@ -51,6 +52,8 @@ const routes = [
       { path: '', name: 'homedosen', component: () => import('pages/dosen/homedosen.vue') },
       { path: 'logbook/input', name: 'inputLogBookdosen', component: () => import('pages/dosen/inputlogbook.vue') },
       { path: 'mingguan/lihat', name: 'lihatmingguan', component: () => import('pages/dosen/laporanmingguan.vue') },
+      { path: 'nilai/input/:id', name: 'inputnilai', component: () => import('pages/dosen/inputnilai.vue') },
+      { path: 'akhir/lihat', name: 'lihatakhir', component: () => import('pages/dosen/laporanakhir.vue') },
       { path: 'datalogbook', name: 'datalogbookdosen', component: () => import('pages/dosen/datalogbook.vue') },
       { path: 'logbook/edit/:id', name: 'editlogbook', component: () => import('pages/dosen/editlogbook.vue') },
       // untuk menampilkan id di evaluasi

@@ -12,7 +12,7 @@
         />
 
         <q-toolbar-title>
-          APLIKASI MERDEKA BELAJAR KAMPUS MERDEKA BELAJAR
+        APLIKASI MERDEKA BELAJAR KAMPUS MERDEKA
         </q-toolbar-title>
 
       </q-toolbar>
@@ -59,20 +59,6 @@
             <q-item-label>Data Logbook</q-item-label>
           </q-item-section>
         </q-item>
-        <!-- <q-item
-          clickable
-          :to="{ name: 'inputlaporanmingguan' }"
-        >
-          <q-item-section
-            avatar
-          >
-            <q-icon name="input" />
-          </q-item-section>
-
-          <q-item-section>
-            <q-item-label>Input Laporan Mingguan</q-item-label>
-          </q-item-section>
-        </q-item> -->
         <q-item
           clickable
           @click="logout()"

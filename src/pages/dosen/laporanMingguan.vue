@@ -24,8 +24,11 @@
             <q-td key="waktu_selesai_pelaksanaan" :props="props">
               {{ $parseDate(props.row.waktu_selesai_pelaksanaan).fullDate }}
             </q-td>
+            <q-td key="image" :props="props">
+              <q-img v-for="(gambar, i) in props.row.image" :key="i" :src="`${$baseURL}/${gambar.filename}`"/>
+            </q-td>
             <q-td key="target_kegiatan" :props="props">
-              {{ props.row.target_kegiatan }}
+              {{ (props.row.target_kegiatan) }}
             </q-td>
             <q-td key="Keterangan" :props="props">
               {{ (props.row.Keterangan) }}
@@ -52,6 +55,7 @@ export default {
         { name: 'Deskripsi', align: 'left', label: 'Deskripsi', field: 'Deskripsi', sortable: true },
         { name: 'waktu_mulai_pelaksanaan', align: 'left', label: 'Waktu Mulai Pelaksanaan', field: 'waktu_mulai_pelaksanaan' },
         { name: 'waktu_selesai_pelaksanaan', align: 'left', label: 'Waktu selesai Pelaksanaan', field: 'waktu_selesai_pelaksanaan' },
+        { name: 'image', align: 'left', label: 'Gambar Bukti Target Kegiatan', field: 'target_kegiatan' },
         { name: 'target_kegiatan', align: 'left', label: 'Target Kegiatan', field: 'target_kegiatan' },
         { name: 'Keterangan', align: 'left', label: 'Keterangan', field: 'Keterangan' },
         { name: 'aksi', align: 'left', label: 'Aksi', field: 'aksi' }

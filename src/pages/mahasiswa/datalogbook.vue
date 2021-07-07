@@ -30,7 +30,8 @@
             </q-td>
             <q-td key="aksi" :props="props">
               <div class="row q-gutter-md">
-                <q-btn label="KERJAKAN" color="warning" unelevated :to="{ name: 'inputlaporanmingguan', params: { id: props.row._id}}"/>
+                <q-btn label="KERJAKAN MINGGUAN" color="warning" unelevated :to="{ name: 'inputlaporanmingguan', params: { id: props.row._id}}"/>
+                <q-btn label="KERJAKAN LAPORAN AKHIR" color="warning" unelevated :to="{ name: 'inputlaporanakhir', params: { id: props.row._id}}"/>
               </div>
             </q-td>
           </q-tr>
@@ -65,7 +66,6 @@ export default {
       const dataMhs = this.$q.localStorage.getItem('dataUser')
       this.$axios.get('logbook/getbymhs/' + dataMhs.username)
         .then(res => {
-          console.log(res)
           this.data = res.data.data
         })
     },

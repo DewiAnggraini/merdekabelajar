@@ -12,7 +12,7 @@
         />
 
         <q-toolbar-title>
-          APLIKASI MERDEKA BELAJAR KAMPUS MERDEKA BELAJAR
+        APLIKASI MERDEKA BELAJAR KAMPUS MERDEKA
         </q-toolbar-title>
 
       </q-toolbar>
