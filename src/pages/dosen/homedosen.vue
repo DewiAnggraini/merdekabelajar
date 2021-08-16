@@ -29,6 +29,7 @@
             <q-td key="aksi" :props="props">
               <div class="row q-gutter-md">
                 <q-btn :disable="props.row.mahasiswa.status === 1" label="KONFIRMASI" color="warning" @click="confirm(props.row.mahasiswa._id)"/>
+                 <q-btn label="INPUT KEGIATAN" color="warning" unelevated :to="{ name: 'inputLogBookdosen', params: { id: props.row.mahasiswa.NPM}}"/>
               </div>
               </q-td>
           </q-tr>

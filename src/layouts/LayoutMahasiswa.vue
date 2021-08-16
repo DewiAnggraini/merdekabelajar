@@ -47,6 +47,20 @@
         </q-item>
         <q-item
           clickable
+          :to="{ name: 'inputkegiatanmahasiswa' }"
+        >
+          <q-item-section
+            avatar
+          >
+            <q-icon name="dashboard" />
+          </q-item-section>
+
+          <q-item-section>
+            <q-item-label>Pilih Kegiatan</q-item-label>
+          </q-item-section>
+        </q-item>
+        <q-item
+          clickable
           :to="{ name: 'lihatlogbookmahasiswa' }"
         >
           <q-item-section
@@ -57,6 +71,20 @@
 
           <q-item-section>
             <q-item-label>Data Logbook</q-item-label>
+          </q-item-section>
+        </q-item>
+        <q-item
+          clickable
+          :to="{ name: 'lihatlaporanmingguan' }"
+        >
+          <q-item-section
+            avatar
+          >
+            <q-icon name="description" />
+          </q-item-section>
+
+          <q-item-section>
+            <q-item-label>Lihat Laporan Mingguan</q-item-label>
           </q-item-section>
         </q-item>
         <q-item

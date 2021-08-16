@@ -70,10 +70,10 @@ export default {
   methods: {
     getdata () {
       const dataMhs = this.$q.localStorage.getItem('dataUser')
-      this.$axios.get('mingguan/getbydosen/' + dataMhs.username + '/' + this.$route.params.npm)
+      this.$axios.get('mingguan/getbydosen/' + dataMhs.username)
         .then(res => {
           this.data = res.data.data
-          console.log(res)
+          console.log(this.data)
         })
     },
     confirm (id) {

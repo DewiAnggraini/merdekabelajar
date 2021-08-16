@@ -9,14 +9,6 @@
       >
         <q-input
           filled
-          v-model="NPM"
-          label="Tulis Npm*"
-          hint="NPM Anda"
-          lazy-rules
-          :rules="[ val => val && val.length > 0 || 'Tidak boleh dikosongkan']"
-        />
-        <q-input
-          filled
           v-model="nama_kegiatan"
           label="tulis Nama Kegiatan*"
           hint=" Nama Kegiatan"
@@ -39,7 +31,7 @@
           lazy-rules
           :rules="[ val => val && val.length > 0 || 'Tidak boleh dikosongkan']"
         />
-<q-file v-model="file" multiple accept=".jpg, image/*" class="q-pr-md" filled icon label="input SK MBKM">
+          <q-file v-model="file" accept=".pdf, image/*" class="q-pr-md" filled icon label="input SK MBKM">
             <template v-slot:prepend>
               <q-icon name="attach_file" />
             </template>
@@ -63,37 +55,32 @@ export default {
 
       accept: false,
       NPM: null,
+      NIDN_dosen: null,
       nama_kegiatan: null,
       Nilai_skill: null,
       Nilai_matakuliah: null,
+      File: null,
       loaded: false,
       file: null
     }
   },
   methods: {
     onSubmit () {
-      const dataUser = this.$q.localStorage.getItem('dataUser')
+      const dataDosen = this.$q.localStorage.getItem('dataUser')
       const payload = {
-        NPM: dataUser.username,
+        NPM: this.$route.params.npm,
+        NIDN_dosen: dataDosen.username,
         nama_kegiatan: this.nama_kegiatan,
         Nilai_skill: this.Nilai_skill,
         Nilai_matakuliah: this.Nilai_skill
       }
       const formData = new FormData()
+      formData.append('file', this.file)
       formData.append('data', JSON.stringify(payload))
-      for (const i in this.file) {
-        formData.append('image',
-          new Blob([
-            this.file[i]
-          ],
-          {
-            type: 'image/jpg',
-            name: this.file[i].name
-          }), `${Math.floor(Math.random() * 100 + i)}.jpg`)
-      }
       this.$axios.post('inputnilai/insert', formData).then(res => {
         if (res.data.sukses) {
           this.$showNotif(res.data.massage, 'positive')
+          this.$router.push({ name: 'datanilaimahasiswa', params: { NPM: this.$route.params.npm } })
         } else {
           this.$showNotif(res.data.massage, 'negative')
         }

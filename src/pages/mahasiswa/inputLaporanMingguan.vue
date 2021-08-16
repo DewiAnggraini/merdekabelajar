@@ -8,6 +8,7 @@
           class="q-gutter-md"
         >
         <q-input
+          filled
           v-model="nama_kegiatan"
           label="Tulis Nama Kegiatan"
           hint=" Nama kegiatan"
@@ -142,6 +143,7 @@ export default {
       accept: false,
       nama_kegiatan: null,
       NIDN_dosen: null,
+      NPM: null,
       waktu_mulai_pelaksanaan: null,
       target_kegiatan: null,
       Deskripsi: null,
@@ -164,8 +166,8 @@ export default {
     onSubmit () {
       const dataUser = this.$q.localStorage.getItem('dataUser')
       const payload = {
-        NPM: dataUser.username,
         id_logbook: this.id_logbook,
+        NPM: dataUser.username,
         nama_kegiatan: this.nama_kegiatan,
         NIDN_dosen: dataUser.username,
         waktu_mulai_pelaksanaan: this.waktu_mulai_pelaksanaan,

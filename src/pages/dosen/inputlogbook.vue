@@ -11,7 +11,7 @@
           filled
           v-model="nama_kegiatan"
           label="tulis kegiatan*"
-          hint="nama kegiatan anda"
+          hint="nama kegiatan "
           lazy-rules
           :rules="[ val => val && val.length > 0 || 'Tidak boleh dikosongkan']"
         />
@@ -85,6 +85,7 @@ export default {
 
       accept: false,
       nama_kegiatan: null,
+      NPM: null,
       NIDN_dosen: null,
       waktu_mulai_pelaksanaan: null,
       target_kegiatan: null,
@@ -99,6 +100,7 @@ export default {
       const dataDosen = this.$q.localStorage.getItem('dataUser')
       this.$axios.post('Logbook/insert', {
         nama_kegiatan: this.nama_kegiatan,
+        NPM: this.$route.params.id,
         NIDN_dosen: dataDosen.username,
         waktu_mulai_pelaksanaan: this.waktu_mulai_pelaksanaan,
         waktu_selesai_pelaksanaan: this.waktu_selesai_pelaksanaan,
@@ -108,7 +110,7 @@ export default {
       }).then(res => {
         if (res.data.sukses) {
           this.$showNotif(res.data.massage, 'positive')
-          this.$router.push({ name: 'datalogbookdosen' })
+          this.$router.push({ name: 'datalogbookdosen', params: { npm: this.$route.params.id } })
         } else {
           this.$showNotif(res.data.massage, 'negative')
         }

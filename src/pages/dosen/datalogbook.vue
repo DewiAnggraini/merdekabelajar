@@ -7,12 +7,11 @@
         :columns="columns"
         row-key="name"
       >
-        <template v-slot:top-right>
-          <q-btn label="Input Logbook" color="primary" unelevated icon="add" :to="{ name: 'inputLogBookdosen' }"/>
-        </template>
-
         <template v-slot:body="props">
           <q-tr :props="props">
+           <q-td key="NPM" :props="props">
+              {{ props.row.NPM}}
+            </q-td>
            <q-td key="nama_kegiatan" :props="props">
               {{ props.row.nama_kegiatan}}
             </q-td>
@@ -49,6 +48,7 @@ export default {
   data () {
     return {
       columns: [
+        { name: 'NPM', align: 'left', label: 'NPM', field: 'NPM', sortable: true },
         { name: 'nama_kegiatan', align: 'left', label: 'Nama Kegiatan', field: 'nama_kegiatan', sortable: true },
         { name: 'Deskripsi', align: 'left', label: 'Deskripsi', field: 'Deskripsi' },
         { name: 'waktu_mulai_pelaksanaan', align: 'left', label: 'Waktu mulai Pelaksanaan', field: 'waktu_mulai_pelaksanaan' },
@@ -66,9 +66,9 @@ export default {
   },
   methods: {
     getdata () {
-      const dataDosen = this.$q.localStorage.getItem('dataUser')
-      this.$axios.get('logbook/getall/' + dataDosen.username)
+      this.$axios.get('logbook/getbymhs/' + this.$route.params.npm)
         .then(res => {
+          console.log(res.data.data)
           this.data = res.data.data
         })
     },
